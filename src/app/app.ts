@@ -1,7 +1,7 @@
 import { CellCoord } from './models/cell-coord';
 import { ChessColor } from './models/chess-color';
 import { Field } from './models/field';
-import { Knight } from './models/knight';
+import { Knight } from './models/figures/knight';
 import { Position } from './models/position';
 
 export class App {
