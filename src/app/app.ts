@@ -24,12 +24,12 @@ export class App {
     let wknight = new Knight(ChessColor.white);
     let wknigth_pos = new CellCoord(6, 7);
     let position = new Position();
-    position.set(wknigth_pos, wknight);
+    position.set(wknigth_pos.toString(), wknight);
     let field = new Field(position, ChessColor.white);
     console.log(wknight.getMoves(wknigth_pos, field));
     let newField = field.makeMove(wknight.getMoves(wknigth_pos, field).values().next().value);
     console.log(newField.getPosition());
     //----------------------------------------
-    console.log(newField.isFreeCell(new CellCoord(4, 6))); // TODO:  <--- Здесь проблема, получаем true вместо false, т.к. координаты одинаковые, объекты разные. Надо менять индекс в Position на string
+    console.log(newField.isFreeCell(new CellCoord(4, 6)));
   }
 }
