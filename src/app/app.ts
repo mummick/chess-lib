@@ -3,6 +3,7 @@ import { ChessColor } from './models/chess-color';
 import { Field } from './models/field';
 import { Knight } from './models/figures/knight';
 import { IMove } from './models/imove';
+import { IPosition } from './models/iPosition';
 import { Position } from './models/position';
 
 export class App {
@@ -24,8 +25,8 @@ export class App {
     //--------------------------------------------------
     let wknight = new Knight(ChessColor.white);
     let wknigth_pos = new CellCoord(6, 7);
-    let position = new Position();
-    position.set(wknigth_pos.toString(), wknight);
+    let position: IPosition = new Position();
+    position.addFigure(wknigth_pos, wknight);
     let field = new Field(position, ChessColor.white);
     console.log(wknight.getMoves(wknigth_pos, field));
     let newField = (wknight.getMoves(wknigth_pos, field).values().next().value as IMove).makeMove(field);
