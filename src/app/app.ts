@@ -2,6 +2,7 @@ import { CellCoord } from './models/cell-coord';
 import { ChessColor } from './models/chess-color';
 import { Field } from './models/field';
 import { Knight } from './models/figures/knight';
+import { IMove } from './models/imove';
 import { Position } from './models/position';
 
 export class App {
@@ -27,9 +28,9 @@ export class App {
     position.set(wknigth_pos.toString(), wknight);
     let field = new Field(position, ChessColor.white);
     console.log(wknight.getMoves(wknigth_pos, field));
-    let newField = field.makeMove(wknight.getMoves(wknigth_pos, field).values().next().value);
-    console.log(newField.getPosition());
+    let newField = (wknight.getMoves(wknigth_pos, field).values().next().value as IMove).makeMove(field);
+    console.log(newField.getPosition()); //{4, 6}
     //----------------------------------------
-    console.log(newField.isFreeCell(new CellCoord(4, 6)));
+    console.log(newField.isFreeCell(new CellCoord(4, 6))); //false
   }
 }
