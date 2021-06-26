@@ -28,8 +28,10 @@ export class App {
     let position: IPosition = new Position();
     position.addFigure(wknigth_pos, wknight);
     let field = new Field(position, ChessColor.white);
+    console.log(field.toFEN());
     console.log(wknight.getMoves(wknigth_pos, field));
     let newField = (wknight.getMoves(wknigth_pos, field).values().next().value as IMove).makeMove(field);
+    console.log(newField.toFEN());
     console.log(newField.getPosition()); //{4, 6}
     console.log(CellCoord.fromString('e2'));
     //----------------------------------------
