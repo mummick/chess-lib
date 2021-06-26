@@ -31,6 +31,7 @@ export class App {
     console.log(wknight.getMoves(wknigth_pos, field));
     let newField = (wknight.getMoves(wknigth_pos, field).values().next().value as IMove).makeMove(field);
     console.log(newField.getPosition()); //{4, 6}
+    console.log(CellCoord.fromString('e2'));
     //----------------------------------------
     console.log(newField.isFreeCell(new CellCoord(4, 6))); //false
   }
